@@ -7,7 +7,7 @@ A simple blog API built with Node.js, Express, and MongoDB. The API allows users
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/blog-api.git
+git clone https://github.com/fatihyd/blog-api.git
 cd blog-api
 ```
 
