@@ -8,7 +8,6 @@ const blogSchema = new mongoose.Schema({
   author: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "User",
-    required: true,
   },
   url: {
     type: String,
