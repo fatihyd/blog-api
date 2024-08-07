@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogList = ({ blogs }) => {
+const BlogList = ({ blogs, updateBlog }) => {
     return (
         <div>
             <h2>all blogs:</h2>
@@ -8,8 +8,10 @@ const BlogList = ({ blogs }) => {
                 {
                     blogs.map((blog) => (
                         <li key={blog._id}>
+                            { /* <p><strong>author: </strong>{blog.author}</p> */ }
                             <p><strong>title: </strong>{blog.title}</p>
                             <p><strong>likes: </strong>{blog.likes}</p>
+                            <button onClick={() => updateBlog({ ...blog, likes: blog.likes + 1 })}>like👍</button>
                             <p>{blog.url}</p>
                         </li>
                     ))

@@ -26,7 +26,7 @@ function App() {
 
       {user === null ? 
       <LoginForm setUser={setUser} /> : 
-      <Blogs user={user} />
+      <Blogs />
       }
     </>
   )
