@@ -45,7 +45,7 @@ router.put("/:id", authMiddleware, async (req, res) => {
   // Check if the token sent with the request is the same as that of the blog's author
   const blog = await Blog.findById(req.params.id);
 
-  if (req.user.id !== blog.author.toString()) {
+  if (req.user.id !== blog.author._id.toString()) {
     return res
       .status(403)
       .json({ message: "You are not authorized to update this blog!" });
