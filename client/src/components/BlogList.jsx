@@ -8,7 +8,7 @@ const BlogList = ({ blogs, updateBlog }) => {
                 {
                     blogs.map((blog) => (
                         <li key={blog._id}>
-                            { /* <p><strong>author: </strong>{blog.author}</p> */ }
+                            <p><strong>author: </strong>{blog.author.username}</p>
                             <p><strong>title: </strong>{blog.title}</p>
                             <p><strong>likes: </strong>{blog.likes}</p>
                             <button onClick={() => updateBlog({ ...blog, likes: blog.likes + 1 })}>like👍</button>
