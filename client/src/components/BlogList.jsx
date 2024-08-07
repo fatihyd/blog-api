@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogList = ({ blogs, updateBlog }) => {
+const BlogList = ({ blogs, user, updateBlog, deleteBlog }) => {
     return (
         <div>
             <h2>all blogs:</h2>
@@ -13,6 +13,9 @@ const BlogList = ({ blogs, updateBlog }) => {
                             <p><strong>likes: </strong>{blog.likes}</p>
                             <button onClick={() => updateBlog({ ...blog, likes: blog.likes + 1 })}>like👍</button>
                             <p>{blog.url}</p>
+                            {user.username === blog.author.username && (
+                            <button onClick={() => deleteBlog(blog._id)}>Delete</button>
+                            )}
                         </li>
                     ))
                 }

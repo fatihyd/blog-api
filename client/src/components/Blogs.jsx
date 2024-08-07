@@ -3,7 +3,7 @@ import axios from 'axios';
 import BlogForm from './BlogForm';
 import BlogList from './BlogList';
 
-const Blogs = () => {
+const Blogs = ({ user }) => {
     const [blogs, setBlogs] = useState([]);
 
     const fetchBlogs = async () => {
@@ -33,10 +33,19 @@ const Blogs = () => {
         );
     }
 
+    const deleteBlog = async (blogID) => {
+        const token = JSON.parse(window.localStorage.getItem('loggedInUser')).token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` },
+        }
+        await axios.delete(`http://localhost:3000/api/blogs/${blogID}`, config);
+        setBlogs(blogs.filter(blog => blog.id !== blogID));
+    }
+
     return (
         <>
             <BlogForm fetchBlogs={fetchBlogs} />
-            <BlogList blogs={blogs} updateBlog={updateBlog}/>
+            <BlogList blogs={blogs} user={user} updateBlog={updateBlog} deleteBlog={deleteBlog} />
         </>
     );
 };
